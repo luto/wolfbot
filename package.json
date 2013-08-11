@@ -1,0 +1,22 @@
+{
+   "name":"wolfbot",
+   "description":"",
+   "version":"0.0.1",
+   "homepage":"",
+   "repository":"",
+   "author":"luto <m@luto.at>",
+   "main":"./bot.js",
+   "dependencies":{
+      "wolfram":"0.2.6",
+      "irc":"0.3.6"
+   },
+   "engines":{
+      "node":">= 0.8.0"
+   },
+   "licenses":[
+      {
+         "type":"MIT",
+         "url":"http://github.com/wearefractal/APPNAME/raw/master/LICENSE"
+      }
+   ]
+}
