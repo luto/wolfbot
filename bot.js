@@ -20,6 +20,10 @@ client.addListener('message', function (from, to, message) {
         else
           msg = result[1].subpods[0].value;
 
+        msg = msg.replace('\n', ' - ');
+        if(msg.length > 450)
+          msg = msg.substr(0, 450);
+
         client.say('#korea', from + ": " + msg);
       }
     );
