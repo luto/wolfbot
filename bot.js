@@ -1,5 +1,6 @@
 var config = require('./config.js');
-var wolfram = require('wolfram').createClient("");
+console.log(config);
+var wolfram = require('wolfram').createClient(config.wolfkey);
 var irc = require('irc');
 
 var client = new irc.Client('irc.freenode.org', 'WolfBot', {
@@ -7,6 +8,21 @@ var client = new irc.Client('irc.freenode.org', 'WolfBot', {
 });
 
 client.addListener('message', function (from, to, message) {
-    console.log(from + ' => ' + to + ': ' + message);
+  if(message.indexOf("!wolf") == 0)
+  {
+    wolfram.query(message.substr(6),
+      function(err, result)
+      {
+        var msg = "";
+
+        if(err)
+          msg = JSON.stringify(err);
+        else
+          msg = JSON.stringify(result[1].subpods[0].value);
+
+        client.say('#korea', msg);
+      }
+    );
+  }
 });
 
