@@ -15,10 +15,10 @@ client.addListener('message', function (from, to, message) {
       {
         var msg = "";
 
-        if(err)
-          msg = JSON.stringify(err);
+        if(err || result.length < 2 || result[1].subpods.length < 1)
+          msg = "error";
         else
-          msg = JSON.stringify(result[1].subpods[0].value);
+          msg = result[1].subpods[0].value;
 
         client.say('#korea', msg);
       }
