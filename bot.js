@@ -20,7 +20,7 @@ client.addListener('message', function (from, to, message) {
         else
           msg = result[1].subpods[0].value;
 
-        client.say('#korea', msg);
+        client.say('#korea', from + ": " + msg);
       }
     );
   }
