@@ -4,7 +4,7 @@ var wolfram = require('wolfram').createClient(config.wolfkey);
 var irc = require('irc');
 
 var client = new irc.Client('irc.freenode.org', 'WolfBot', {
-    channels: ['#korea'],
+    channels: ['#korea', '#metalab'],
 });
 
 client.addListener('message', function (from, to, message) {
@@ -24,7 +24,7 @@ client.addListener('message', function (from, to, message) {
         if(msg.length > 450)
           msg = msg.substr(0, 450);
 
-        client.say('#korea', from + ": " + msg);
+        client.say(to, from + ": " + msg);
       }
     );
   }
